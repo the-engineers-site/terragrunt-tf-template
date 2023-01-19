@@ -1,6 +1,6 @@
 dependency "vpc" {
   config_path = "../vpc"
-
+  skip_outputs = true
   mock_outputs_allowed_terraform_commands = ["validate"]
   mock_outputs                            = {
     vpc_id = "fake-vpc-id"
