@@ -17,17 +17,9 @@ locals {
 
 # Generate an AWS provider block
 generate "provider" {
-  path      = "generated-provider.tf"
+  path      = "provider.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "${local.versions_vars.locals.aws_provider_version}"
-    }
-  }
-}
 provider "aws" {
   region = "${local.aws_region}"
   allowed_account_ids = ["${local.account_id}"]
