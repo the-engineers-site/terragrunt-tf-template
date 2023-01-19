@@ -6,9 +6,9 @@ locals {
   region_vars = read_terragrunt_config(find_in_parent_folders("region.hcl"))
 
   # Automatically load environment-level variables
-  versions_vars = read_terragrunt_config("version.hcl")
+  versions_vars = read_terragrunt_config(find_in_parent_folders("version.hcl"))
 
-  env_specific_vars = yamldecode(file("${get_terragrunt_dir()}/env.yaml"))
+  env_specific_vars = yamldecode(file(find_in_parent_folders("env.yaml")))
 
   tags = merge(
     local.account_vars.locals.env_type_tags,

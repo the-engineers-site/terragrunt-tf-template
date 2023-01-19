@@ -5,3 +5,7 @@ resource "aws_ssm_parameter" "vpc-id" {
   depends_on = [module.vpc]
   tags       = var.tags
 }
+
+output "vpc_id" {
+  value = module.vpc.vpc_id
+}
